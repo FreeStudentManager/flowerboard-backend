@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "flowerboard-backend"
+version = "0.0.1-alpha.1"
+description = "FlowerBoard 是一个开放源代码的表白墙软件。"
+authors = ["XYCode Kerman <xycode-xyc@outlook.com>"]
+license = "GPL-3.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+fastapi = "^0.111.1"
+sqlmodel = "^0.0.21"
+uvicorn = {extras = ["standard"], version = "^0.30.3"}
+pyjwt = "^2.8.0"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+authing = "^4.5.18"
+python-dotenv = "^1.0.1"
+psycopg2 = {version = "^2.9.9", optional = true}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
