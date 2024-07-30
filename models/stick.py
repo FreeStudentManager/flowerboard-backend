@@ -1,7 +1,7 @@
 from sqlmodel import Field, SQLModel
 
 
-class Stick(SQLModel):
+class Stick(SQLModel, table=True):
     """表白墙上的贴纸
 
     Attributes: 
@@ -16,7 +16,7 @@ class Stick(SQLModel):
     creator: str | None = Field(default=None)
 
 
-class StickComment(SQLModel):
+class StickComment(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     stick_id: int | None = Field(default=None, foreign_key="stick.id")
     content: str

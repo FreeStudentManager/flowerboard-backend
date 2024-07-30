@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from sqlmodel import SQLModel
 
 from database import engine
+from routers import stick
 
 
 @asynccontextmanager
@@ -21,6 +22,8 @@ app = FastAPI(
     },
     lifespan=lifespan
 )
+
+app.include_router(stick.router, prefix='/stick')
 
 
 @app.get(
