@@ -14,9 +14,18 @@ class Stick(SQLModel, table=True):
     name: str = Field(max_length=16)
     content: str
     creator: str | None = Field(default=None)
+    school_id: int | None = Field(default=None, foreign_key="school.id")
 
 
 class StickComment(SQLModel, table=True):
+    """贴纸评论
+
+    Attributes: 
+        id: 评论 id
+        stick_id: 贴纸 id
+        content: 内容，支持 Markdown
+        sender: 发送者（None 表示匿名）
+    """
     id: int | None = Field(default=None, primary_key=True)
     stick_id: int | None = Field(default=None, foreign_key="stick.id")
     content: str

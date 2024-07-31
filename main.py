@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from sqlmodel import SQLModel
 
+from auth import enforcer
 from database import engine
 from routers import stick
 
@@ -10,6 +11,7 @@ from routers import stick
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     SQLModel.metadata.create_all(engine)
+    await enforcer.load_policy()
     yield
 
 
